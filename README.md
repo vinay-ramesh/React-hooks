@@ -29,9 +29,9 @@ They will get call always in the same order and mentioned on top of the Scope
    **Syntax**
    useEffect(() => {
 
-   return () => {
-   console.log("Cleanup function)
-   }
+   return () => {  
+   console.log("Cleanup function)  
+   }  
    }, [stateVaribale])
 
    1. useEffect with no dependency array --> callback invoked infinite times
