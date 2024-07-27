@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import UseStateComponent from "./hooks/UseStateComponent";
+import UseEffectComponent from "./hooks/UseEffectComponent";
+import HookLists from "./HookLists";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact={true}>
+          <Redirect to="/display" />
+        </Route>
+        <Route path="/display" component={HookLists} exact={true} />
+        <Route path={"/useState-hook"} component={UseStateComponent} exact />
+        <Route path={"/useEffect-hook"} component={UseEffectComponent} exact />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
