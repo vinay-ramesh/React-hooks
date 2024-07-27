@@ -25,7 +25,7 @@ They will get call always in the same order and mentioned on top of the Scope
    - ref: **https://blog.webdevsimplified.com/2020-04/use-state/**
 
 2. UseEffect
-   Helps to fetch or load the data to component when its mounted. And also detects the sideEffects happend in the component
+   Helps to fetch or load the data to component when its mounted. And also detects the sideEffects happend in the component.  
    **Syntax**
    useEffect(() => {
 
