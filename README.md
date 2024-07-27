@@ -56,4 +56,4 @@ They will get call always in the same order and mentioned on top of the Scope
 
      Every time when the useEffect Runs, cleanup fun runs first to cleaup whatevr we did for the last time and then the callBack fun executed.
 
-   [ref](https://blog.webdevsimplified.com/2020-04/use-effect/)
+   - ref: **https://blog.webdevsimplified.com/2020-04/use-effect/**
