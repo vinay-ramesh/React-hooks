@@ -22,6 +22,9 @@ const HookLists = () => {
         <li>
           <Link to="/useRef-hook">useRef Hook</Link>
         </li>
+        <li>
+          <Link to="/useContext-hook">UseContext Hook</Link>
+        </li>
       </ul>
     </div>
   );

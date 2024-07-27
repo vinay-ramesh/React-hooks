@@ -57,3 +57,29 @@ They will get call always in the same order and mentioned on top of the Scope
      Every time when the useEffect Runs, cleanup fun runs first to cleaup whatevr we did for the last time and then the callBack fun executed.
 
    - ref: **https://blog.webdevsimplified.com/2020-04/use-effect/**
+
+3. UseContext
+   React Context is a way to manage state globally.
+
+   - It can be used together with the useState Hook to share state between deeply nested components more easily than with useState alone.
+   - State should be held by the highest parent component in the stack that requires access to the state.
+     **Syntax**
+     import { createContext } from "react";
+
+     const UserContext = createContext()
+     <ThemeContext.Provider value={darkTheme}>
+     <Child1>
+     <Child2>
+     </ThemeContext.Provider>
+
+   1. createContext() --> Helps to create the context
+   2. Provider --> Helps to wrap the Nested Components <Child1> & <Child2>
+   3. value --> prop which shares the state variable declared in parent among its child
+   4. <ThemeContext.Consumer>
+      <ClassChild1 JSX>
+      </ThemeContext.Consumer>
+      ThemeContext.Consumer --> Wrapper for Class Based Child Component JSX
+   5. In functional baseed child components we use hook --> known as useContext() in order to access the values from parent  
+      const darkTheme = useContext(ThemeContext); --> returned value is the state variables mentioned in parent component
+
+   - ref: **https://blog.webdevsimplified.com/2020-06/use-context/**
