@@ -83,3 +83,40 @@ They will get call always in the same order and mentioned on top of the Scope
       const darkTheme = useContext(ThemeContext); --> returned value is the state variables mentioned in parent component
 
    - ref: **https://blog.webdevsimplified.com/2020-06/use-context/**
+
+# Top 6 React Hook Mistakes Beginners Make
+
+--ref: **https://www.youtube.com/watch?v=GGo3MVBFr1A**
+
+Tips to avoid the mistakes
+
+1. Use useRef() instead of useState() hook, inorder to avoid the unnecessary re-rendering of the component
+2. Use functional way of updating the state in useState setFunction.
+3. Asynchronous state updation --> To get the updated state value instantly, utlise useEffect hook and mention the state varibale in dependency array.
+4. Avoid unnecessary useEffects and its dependency variables.
+5. Avoid Referential Equality Mistakes. [2 objects with same properties are never be equal to each other] In this situation, useMemo hook can be used in order to keep track of any changes happening with the objects.
+6. Abort the fetch requests
+   Scenario is, when you fire a same API request multiple times, each request will take its own amount of time to fetch the data, hence the data returning in the last response will reflect in UI. Hence use the useEffect's **Clean-up** function to abort the calls whenever fetch URL changes rapidly.
+   Ex: Best example is Pagination: Updating limit and offset
+
+```javascript
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
+    const controller = new AbortController();
+    try {
+      const result = await axios.get("foo/bar", { signal: controller.signal });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  fetchData();
+
+  // Cleanup Function
+  return () => {
+    contorller.abort();
+  };
+}, []);
+```
