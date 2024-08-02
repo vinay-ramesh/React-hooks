@@ -14,7 +14,7 @@ const FunctionalContextComponent = () => {
 
   return (
     <>
-      <button onClick={toggleTheme}></button>
+      <button onClick={toggleTheme}>Toggle Theme</button>
       <div style={themeStyles}>Functional Component</div>
     </>
   );

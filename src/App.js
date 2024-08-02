@@ -4,6 +4,7 @@ import UseStateComponent from "./hooks/UseStateComponent";
 import UseEffectComponent from "./hooks/UseEffectComponent";
 import HookLists from "./HookLists";
 import UseContextComponent from "./hooks/UseContextComponent";
+import UseRefComponent from "./hooks/UseRefComponent";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/display" component={HookLists} exact={true} />
         <Route path={"/useState-hook"} component={UseStateComponent} exact />
         <Route path={"/useEffect-hook"} component={UseEffectComponent} exact />
+        <Route path={"/useRef-hook"} component={UseRefComponent} exact />
         <Route
           path={"/useContext-hook"}
           component={UseContextComponent}

@@ -84,7 +84,29 @@ They will get call always in the same order and mentioned on top of the Scope
 
    - ref: **https://blog.webdevsimplified.com/2020-06/use-context/**
 
-# Top 6 React Hook Mistakes Beginners Make
+4. useRef
+
+   - useRef returns the value which is similar to the useState and persists the value of state between the renders of the component
+   - useRef values does not cause the re-render when it get updated.
+     **Syntax**
+
+   ```javascript
+   const myCount = useRef(0);
+   console.log(myCount); //{current: 0}
+   ```
+
+   - useRef comes with object which has prop **current** which holds the initial value defined in useRef initialisation.
+   - This also helps to get the reference of DOM elements through its ref attribute.
+
+   ```JSX
+   const inputRef = useRef()
+
+   <input ref={inputRef}/>
+   ```
+
+   -ref: **https://blog.webdevsimplified.com/2020-05/use-ref/**
+
+### Top 6 React Hook Mistakes Beginners Make
 
 --ref: **https://www.youtube.com/watch?v=GGo3MVBFr1A**
 
