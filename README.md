@@ -26,13 +26,18 @@ They will get call always in the same order and mentioned on top of the Scope
 
 2. UseEffect
    Helps to fetch or load the data to component when its mounted. And also detects the sideEffects happend in the component.  
-   **Syntax**  
-   useEffect(() => {
+   **Syntax**
 
-   return () => {  
-   console.log("Cleanup function)  
-   }  
-   }, [stateVaribale])
+   ```JSX
+
+   useEffect(() => {
+    console.log("Function logic")
+    return () => {
+      console.log("Cleanup function)
+    }
+   }, [])
+
+   ```
 
    1. useEffect with no dependency array --> callback invoked infinite times
    2. useEffect with empty dependency array --> callback invoked only once after the component mounting
@@ -42,19 +47,21 @@ They will get call always in the same order and mentioned on top of the Scope
    - UseEffect function runs - after every render and after every side effect
    - Cleanup function is the returned function of useEffect callback and it is called during component unmounting phase.
 
-     useEffect(() => {
+   ```JSX
+
+    useEffect(() => {
      console.log("Hello)
      return () => {
      console.log("Cleanup function)
      }
-     }, [stateVaribale])
+    }, [stateVaribale])
 
-     So During the initial load of the screen - Hello printed.
-     When stateVaribale changed,
-     Cleanup function printed due to cleanup function execution and
-     then Hello get printed.
+   ```
 
-     Every time when the useEffect Runs, cleanup fun runs first to cleaup whatevr we did for the last time and then the callBack fun executed.
+   So During the initial load of the screen - Hello printed.
+   When stateVaribale changed, Cleanup function printed due to cleanup function execution and then Hello get printed.
+
+   Every time when the useEffect Runs, cleanup fun runs first to cleaup whatevr we did for the last time and then the callBack fun executed.
 
    - ref: **https://blog.webdevsimplified.com/2020-04/use-effect/**
 
@@ -64,13 +71,18 @@ They will get call always in the same order and mentioned on top of the Scope
    - It can be used together with the useState Hook to share state between deeply nested components more easily than with useState alone.
    - State should be held by the highest parent component in the stack that requires access to the state.
      **Syntax**
+
+     ```JSX
+
      import { createContext } from "react";
 
      const UserContext = createContext()
      <ThemeContext.Provider value={darkTheme}>
-     <Child1>
-     <Child2>
+        <Child1>
+        <Child2>
      </ThemeContext.Provider>
+
+     ```
 
    1. createContext() --> Helps to create the context
    2. Provider --> Helps to wrap the Nested Components <Child1> & <Child2>
@@ -79,7 +91,7 @@ They will get call always in the same order and mentioned on top of the Scope
       <ClassChild1 JSX>
       </ThemeContext.Consumer>
       ThemeContext.Consumer --> Wrapper for Class Based Child Component JSX
-   5. In functional baseed child components we use hook --> known as useContext() in order to access the values from parent  
+   5. In functional baseed child components we use hook --> known as useContext() in order to access the values from parent
       const darkTheme = useContext(ThemeContext); --> returned value is the state variables mentioned in parent component
 
    - ref: **https://blog.webdevsimplified.com/2020-06/use-context/**
