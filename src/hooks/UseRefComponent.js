@@ -11,7 +11,7 @@ const UseRefComponent = () => {
   return (
     <>
       <input
-        ref={myRef}
+        ref={myRef} //giving reference to DOM element
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
