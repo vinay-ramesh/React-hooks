@@ -127,6 +127,20 @@ They will get call always in the same order and mentioned on top of the Scope
 
    -ref: **https://blog.webdevsimplified.com/2020-05/use-ref/**
 
+5. useMemo
+
+   - useMemo basically stands for memoization which essentially idea of caching the value, hence we dont need to recompute the value every single time.
+
+   ```javascript
+   const [number, setNumber] = useState(0);
+   const [dark, setDark] = useState(false);
+   const doubleNumber = useMemo(() => {
+     return slowFunction(number);
+   }, [number]);
+   ```
+
+   - Here **number** is the dependency variable, so whenever number changes, then only slowFuction calls, whenever **dark**(another state varibale) updated, component again re-rendered and useMemo helps to send the memoised value of slowFunction.
+
 ### Top 6 React Hook Mistakes Beginners Make
 
 --ref: **https://www.youtube.com/watch?v=GGo3MVBFr1A**
