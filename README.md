@@ -140,6 +140,22 @@ They will get call always in the same order and mentioned on top of the Scope
    ```
 
    - Here **number** is the dependency variable, so whenever number changes, then only slowFuction calls, whenever **dark**(another state varibale) updated, component again re-rendered and useMemo helps to send the memoised value of slowFunction.
+   - So useMemo function calls on every render of the component and this stores the returned value in a memory. This sometimes causes the performance and memory overheads.
+   - **Referencial Equality** - When you start to compare two variables of object datatype(may be an arrays or objects type) in JS, there will always be a comparision of reference of those two objects
+   - Whenever function/component runs every time, new reference for the object is created, even though the values within the objects are never updated. Hence we should make use of useMemo inoreder to avoid the **Referencial Equality**.
+
+   ```javascript
+   const themeStyles = useMemo(() => {
+     return {
+       backgroundColor: dark ? "black" : "white",
+       color: dark ? "white" : "black",
+     };
+   }, [dark]);
+   ```
+
+   - useMemo in Nutshell:
+     - useMemo is used with expensive functions in order to stop its execution every time whenever component re-rendered, only the function runs when inputs/parameter values are changed.
+     - useMemo helps to update the reference of the object whenever the contents of the object changed, instead of updating in every single render.
 
 ### Top 6 React Hook Mistakes Beginners Make
 

@@ -11,10 +11,13 @@ const UseMemoHookComponent = () => {
     return slowFunction(number);
   }, [number]);
 
-  const themeStyle = {
-    backgroundColor: dark ? "black" : "white",
-    color: dark ? "white" : "black",
-  };
+  // Stops Referencial Equality
+  const themeStyles = useMemo(() => {
+    return {
+      backgroundColor: dark ? "black" : "white",
+      color: dark ? "white" : "black",
+    };
+  }, [dark]);
 
   return (
     <div
@@ -36,7 +39,7 @@ const UseMemoHookComponent = () => {
       <button onClick={() => setDark((prevState) => !prevState)}>
         Change Theme
       </button>
-      <div style={themeStyle}>{doubleNumber}</div>
+      <div style={themeStyles}>{doubleNumber}</div>
     </div>
   );
 };
