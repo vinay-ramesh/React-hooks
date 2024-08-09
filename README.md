@@ -130,6 +130,7 @@ They will get call always in the same order and mentioned on top of the Scope
 5. useMemo
 
    - useMemo basically stands for memoization which essentially idea of caching the value, hence we dont need to recompute the value every single time.
+     **Syntax**
 
    ```javascript
    const [number, setNumber] = useState(0);
@@ -156,6 +157,37 @@ They will get call always in the same order and mentioned on top of the Scope
    - useMemo in Nutshell:
      - useMemo is used with expensive functions in order to stop its execution every time whenever component re-rendered, only the function runs when inputs/parameter values are changed.
      - useMemo helps to update the reference of the object whenever the contents of the object changed, instead of updating in every single render.
+
+   --ref: **https://blog.webdevsimplified.com/2020-05/memoization-in-react/#usememo**
+
+6. useCallback
+
+   - useCallback hook is generally used with functions which also works as useMemo. useCallback will return a memoized version of the callback that only changes if one of the inputs has changed.
+     **Syntax**
+
+   ```javascript
+   const [number, setNumber] = useState(0);
+   const [dark, setDark] = useState(false);
+   const getItem = useCallback(() => {
+     return [number, number + 1, number + 2];
+   }, [number]);
+   ```
+
+   - On every component render, getItem re-created and called. But after using useCallback, useCallback recreates the getItem function only when _number_ changes. _number_ is the input here for getItem function.
+
+- Difference between useMemo and useCallback is,
+
+  - useCallback's first varible, ie: the arrow function will be the value of _getItem_ in above example.
+
+  ```javascript
+  const getItem = useMemo(() => {
+    return [number, number + 1, number + 2];
+  }, [number]);
+  ```
+
+  - If we use the useMemo instead of useCallback, then value of _getItem_ will be > [number, number + 1, number + 2]; ie: useMemo returns the value of the arrow function(first parameter for useMemo).
+
+  --ref: **https://blog.webdevsimplified.com/2020-05/memoization-in-react/#usecallback**
 
 ### Top 6 React Hook Mistakes Beginners Make
 

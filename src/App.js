@@ -6,6 +6,7 @@ import HookLists from "./HookLists";
 import UseContextComponent from "./hooks/UseContextComponent";
 import UseRefComponent from "./hooks/UseRefComponent";
 import UseMemoHookComponent from "./hooks/UseMemoHookComponent";
+import UseCallBackHookComponent from "./hooks/useCallbackHookComponent";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
         <Route path={"/useEffect-hook"} component={UseEffectComponent} exact />
         <Route path={"/useRef-hook"} component={UseRefComponent} exact />
         <Route path={"/useMemo-hook"} component={UseMemoHookComponent} exact />
+        <Route
+          path={"/useCallBack-hook"}
+          component={UseCallBackHookComponent}
+          exact
+        />
         <Route
           path={"/useContext-hook"}
           component={UseContextComponent}

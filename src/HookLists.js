@@ -28,6 +28,9 @@ const HookLists = () => {
         <li>
           <Link to="/useMemo-hook">UseMemo Hook</Link>
         </li>
+        <li>
+          <Link to="/useCallBack-hook">UseCallback Hook</Link>
+        </li>
       </ul>
     </div>
   );
