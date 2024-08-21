@@ -100,7 +100,7 @@ They will get call always in the same order and mentioned on top of the Scope
       <ClassChild1 JSX>
       </ThemeContext.Consumer>
       ThemeContext.Consumer --> Wrapper for Class Based Child Component JSX
-   5. In functional baseed child components we use hook --> known as useContext() in order to access the values from parent
+   5. In functional based child components we use hook --> known as useContext() in order to access the values from parent
       const darkTheme = useContext(ThemeContext); --> returned value is the state variables mentioned in parent component
 
    - ref: **https://blog.webdevsimplified.com/2020-06/use-context/**
@@ -143,7 +143,7 @@ They will get call always in the same order and mentioned on top of the Scope
    - Here **number** is the dependency variable, so whenever number changes, then only slowFuction calls, whenever **dark**(another state varibale) updated, component again re-rendered and useMemo helps to send the memoised value of slowFunction.
    - So useMemo function calls on every render of the component and this stores the returned value in a memory. This sometimes causes the performance and memory overheads.
    - **Referencial Equality** - When you start to compare two variables of object datatype(may be an arrays or objects type) in JS, there will always be a comparision of reference of those two objects
-   - Whenever function/component runs every time, new reference for the object is created, even though the values within the objects are never updated. Hence we should make use of useMemo inoreder to avoid the **Referencial Equality**.
+   - Whenever function/component runs every time, new reference for the object is created, even though the values within the objects are never updated. Hence we should make use of useMemo inorder to avoid the **Referencial Equality**.
 
    ```javascript
    const themeStyles = useMemo(() => {
